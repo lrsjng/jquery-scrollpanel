@@ -10,6 +10,11 @@ To enable mouse wheel support add [jQuery.mousewheel](http://github.com/brandona
 ## Changelog
 
 
+### v0.2 - *2012-??-??*
+
+*
+
+
 ### v0.1 - *2012-07-04*
 
 * Initial release
