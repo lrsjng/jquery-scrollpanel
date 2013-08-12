@@ -2,6 +2,3 @@
 build
 local
 *.sublime-*
-
-release
-build.local.xml
