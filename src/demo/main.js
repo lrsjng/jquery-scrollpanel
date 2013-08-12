@@ -1,8 +1,4 @@
 
-// @include "../inc/jquery-1.7.js"
-// @include "../inc/jquery.mousewheel-3.0.6.js"
-// @include "../jquery.scrollpanel-%BUILD_VERSION%.js"
-
 (function($) {
 	'use strict';
 
