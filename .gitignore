@@ -1,8 +1,5 @@
 
+bower_components
 build
-release
-
-# local files
-build.local.xml
-*.sublime-*
-.ant-targets-*
+local
+node_modules
