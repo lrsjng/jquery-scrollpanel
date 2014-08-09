@@ -38,7 +38,7 @@ THE SOFTWARE.
 [github-issues]: https://github.com/lrsjng/jquery-scrollpanel/issues
 
 [web-img]: http://img.shields.io/badge/web-larsjung.de/scrollpanel-a0a060.svg?style=flat
-[github-img]: http://img.shields.io/badge/GitHub-lrsjng/jquery-scrollpanel-a0a060.svg?style=flat
-[bower-img]: http://img.shields.io/badge/bower-jquery-scrollpanel-a0a060.svg?style=flat
+[github-img]: http://img.shields.io/badge/GitHub-lrsjng/jquery--scrollpanel-a0a060.svg?style=flat
+[bower-img]: http://img.shields.io/badge/bower-jquery--scrollpanel-a0a060.svg?style=flat
 
 [mousewheel]: https://github.com/brandonaaron/jquery-mousewheel
