@@ -1,10 +1,8 @@
 # jQuery.scrollpanel
 
-[![web][web-img]][web] [![GitHub][github-img]][github] [![bower][bower-img]][bower]
+[![web][web-img]][web] [![GitHub][github-img]][github] [![bower][bower-img]][github]
 
 jQuery plugin to create a vertical scroll panel in a container element.
-For bug reports and feature requests please use [issues][github-issues].
-
 To enable mouse wheel support include [jQuery.mousewheel][mousewheel] (MIT).
 
 
@@ -34,8 +32,6 @@ THE SOFTWARE.
 
 [web]: http://larsjung.de/scrollpanel/
 [github]: https://github.com/lrsjng/jquery-scrollpanel
-[bower]: http://bower.io/search/?q=jquery-scrollpanel
-[github-issues]: https://github.com/lrsjng/jquery-scrollpanel/issues
 
 [web-img]: http://img.shields.io/badge/web-larsjung.de/scrollpanel-a0a060.svg?style=flat
 [github-img]: http://img.shields.io/badge/GitHub-lrsjng/jquery--scrollpanel-a0a060.svg?style=flat

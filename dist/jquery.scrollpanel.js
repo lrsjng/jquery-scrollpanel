@@ -1,4 +1,4 @@
-/* jQuery.scrollpanel 0.3.0 - http://larsjung.de/jquery-scrollpanel/ */
+/* jQuery.scrollpanel 0.3.1 - http://larsjung.de/jquery-scrollpanel/ */
 (function ($) {
 	'use strict';
 
