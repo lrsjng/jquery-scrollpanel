@@ -1,9 +1,9 @@
 {
   "name": "jquery-scrollpanel",
   "displayName": "jQuery.scrollpanel",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "a simple vertical scrollpanel",
-  "homepage": "http://larsjung.de/scrollpanel/",
+  "homepage": "http://larsjung.de/jquery-scrollpanel/",
   "bugs": "https://github.com/lrsjng/jquery-scrollpanel/issues",
   "author": "Lars Jung <lrsjng@gmail.com> (http://larsjung.de)",
   "license": "MIT",

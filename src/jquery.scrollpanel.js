@@ -1,5 +1,3 @@
-/*! jQuery.scrollpanel {{pkg.version}} - //larsjung.de/scrollpanel/ - MIT License */
-
 (function ($) {
 	'use strict';
 

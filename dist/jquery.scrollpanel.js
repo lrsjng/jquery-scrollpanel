@@ -1,5 +1,4 @@
-/*! jQuery.scrollpanel 0.2.2 - //larsjung.de/scrollpanel/ - MIT License */
-
+/* jQuery.scrollpanel 0.3.0 - http://larsjung.de/jquery-scrollpanel/ */
 (function ($) {
 	'use strict';
 
