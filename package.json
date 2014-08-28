@@ -1,7 +1,7 @@
 {
   "name": "jquery-scrollpanel",
   "displayName": "jQuery.scrollpanel",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "a simple vertical scrollpanel",
   "homepage": "http://larsjung.de/jquery-scrollpanel/",
   "bugs": "https://github.com/lrsjng/jquery-scrollpanel/issues",
