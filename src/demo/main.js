@@ -1,49 +1,48 @@
+(function() {
+'use strict';
 
-(function($) {
-	'use strict';
+var $ = jQuery;
+var appendContent = true;
 
-	var generateContent = function () {
+function generateContent() {
 
-			$('.scrollpanel').each(function () {
+    $('.scrollpanel').each(function () {
 
-				var $this = $(this);
+        for (var i = 0; i < 10; i += 1) {
+            $(this).prepend('<div class="foo">' + i + '</div>');
+        }
+    });
+}
 
-				for (var i = 0; i < 10; i += 1) {
-					$this.prepend('<div class="foo">' + i + '</div>');
-				}
-			});
-		},
+function updateContent() {
 
-		appendContent = true,
-		updateContent = function () {
+    var $panel = $('.no5');
+    var $panelContent = $('.no5 > .sp-viewport > .sp-container');
+    var length = $panelContent.children().length;
 
-			var $panel = $('.no5'),
-				$panelContent = $('.no5 > .sp-viewport > .sp-container'),
-				length = $panelContent.children().length;
+    if (length <= 0) {
+        appendContent = true;
+    } else if (length >= 10) {
+        appendContent = false;
+    }
 
-			if (length <= 0) {
-				appendContent = true;
-			} else if (length >= 10) {
-				appendContent = false;
-			}
+    if (appendContent) {
+        $panelContent.prepend('<div class="foo">' + length + '</div>');
+    } else {
+        $panelContent.children().eq(0).remove();
+    }
 
-			if (appendContent) {
-				$panelContent.prepend('<div class="foo">' + length + '</div>');
-			} else {
-				$panelContent.children().eq(0).remove();
-			}
+    $panel.scrollpanel('update');
+}
 
-			$panel.scrollpanel('update');
-		},
+function init() {
 
-		init = function () {
+    generateContent();
+    $('.scrollpanel').scrollpanel();
 
-			generateContent();
-			$('.scrollpanel').scrollpanel();
+    setInterval(updateContent, 1000);
+}
 
-			setInterval(updateContent, 1000);
-		};
+$(init);
 
-	$(init);
-
-}(jQuery));
+}());

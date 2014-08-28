@@ -1,6 +1,6 @@
 # jQuery.scrollpanel
 
-[![web][web-img]][web] [![GitHub][github-img]][github] [![bower][bower-img]][github]
+[![license][license-img]][github] [![web][web-img]][web] [![github][github-img]][github] [![bower][bower-img]][github]
 
 jQuery plugin to create a vertical scroll panel in a container element.
 To enable mouse wheel support include [jQuery.mousewheel][mousewheel] (MIT).
@@ -30,11 +30,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-[web]: http://larsjung.de/scrollpanel/
+[web]: http://larsjung.de/jquery-scrollpanel/
 [github]: https://github.com/lrsjng/jquery-scrollpanel
 
-[web-img]: http://img.shields.io/badge/web-larsjung.de/scrollpanel-a0a060.svg?style=flat
-[github-img]: http://img.shields.io/badge/GitHub-lrsjng/jquery--scrollpanel-a0a060.svg?style=flat
-[bower-img]: http://img.shields.io/badge/bower-jquery--scrollpanel-a0a060.svg?style=flat
+[license-img]: http://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square
+[web-img]: http://img.shields.io/badge/web-larsjung.de/scrollpanel-a0a060.svg?style=flat-square
+[github-img]: http://img.shields.io/badge/github-lrsjng/jquery--scrollpanel-a0a060.svg?style=flat-square
+[bower-img]: http://img.shields.io/badge/bower-lrsjng/jquery--scrollpanel-a0a060.svg?style=flat-square
 
 [mousewheel]: https://github.com/brandonaaron/jquery-mousewheel

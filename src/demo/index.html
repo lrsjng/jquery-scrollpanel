@@ -2,31 +2,30 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>{{pkg.displayName}} {{pkg.version}} Demo</title>
-	<meta name="description" content="Test and demo page for {{pkg.displayName}}">
-	<meta name="author" content="Lars Jung">
-	<meta name="viewport" content="width=device-width">
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold">
-	<link rel="stylesheet" href="normalize-1.1.1.css">
-	<link rel="stylesheet" href="main.css">
+    <meta charset="utf-8">
+    <title>{{pkg.displayName}} {{pkg.version}} Demo</title>
+    <meta name="description" content="Demo page for {{pkg.displayName}}">
+    <meta name="author" content="Lars Jung">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold">
+    <link rel="stylesheet" href="normalize-1.1.1.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-	<h1><a href="{{pkg.homepage}}" title="{{pkg.displayName}} project page">{{pkg.displayName}}</a> {{pkg.version}} Demo</h1>
-	<div class="clearfix">
-		<div class="scrollpanel no1"></div>
-		<div class="scrollpanel no2"></div>
-		<div class="scrollpanel no3"></div>
-		<div class="scrollpanel no4"></div>
-		<div class="scrollpanel no5"></div>
-	</div>
+    <h1><a href="{{pkg.homepage}}" title="{{pkg.displayName}} project page">{{pkg.displayName}}</a> {{pkg.version}} Demo</h1>
+    <div class="clearfix">
+        <div class="scrollpanel no1"></div>
+        <div class="scrollpanel no2"></div>
+        <div class="scrollpanel no3"></div>
+        <div class="scrollpanel no4"></div>
+        <div class="scrollpanel no5"></div>
+    </div>
 
-	<script src="jquery-1.10.2.min.js"></script>
-	<script src="jquery.mousewheel-3.1.3.js"></script>
-	<script src="../jquery.scrollpanel-{{pkg.version}}.js"></script>
-	<script src="main.js"></script>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script src="jquery.mousewheel-3.1.3.js"></script>
+    <script src="../jquery.scrollpanel-{{pkg.version}}.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
