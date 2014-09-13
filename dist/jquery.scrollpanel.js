@@ -1,4 +1,4 @@
-/* jQuery.scrollpanel 0.4.0 - http://larsjung.de/jquery-scrollpanel/ */
+/* jQuery.scrollpanel 0.5.0 - http://larsjung.de/jquery-scrollpanel/ */
 (function () {
 'use strict';
 
@@ -39,13 +39,13 @@ function ScrollPanel(element, options) {
 
 
     // Create scrollbar.
-    self.$scrollbar = $('<div class="' + prefix + 'scrollbar" />');
-    self.$thumb = $('<div class="' + prefix + 'thumb" />').appendTo(self.$scrollbar);
+    self.$scrollbar = $('<div class="' + prefix + 'scrollbar"/>');
+    self.$thumb = $('<div class="' + prefix + 'thumb"/>').appendTo(self.$scrollbar);
 
     // Wrap element's content and add scrollbar.
     self.$el
         .addClass(prefix + 'host')
-        .wrapInner('<div class="' + prefix + 'viewport"><div class="' + prefix + 'container" /></div>')
+        .wrapInner('<div class="' + prefix + 'viewport"><div class="' + prefix + 'container"/></div>')
         .append(self.$scrollbar);
 
     // // Get references.
@@ -167,12 +167,12 @@ $.extend(ScrollPanel.prototype, {
 
         self.$viewport.css('height', self.$el.height());
 
-        var visibleHeight = self.$el.height(),
-            contentHeight = self.$container.outerHeight(),
-            scrollTop = self.$viewport.scrollTop(),
-            scrollTopFrac = scrollTop / contentHeight,
-            visVertFrac = Math.min(visibleHeight / contentHeight, 1),
-            scrollbarHeight = self.$scrollbar.height();
+        var visibleHeight = self.$el.height();
+        var contentHeight = self.$container.outerHeight();
+        var scrollTop = self.$viewport.scrollTop();
+        var scrollTopFrac = scrollTop / contentHeight;
+        var visVertFrac = Math.min(visibleHeight / contentHeight, 1);
+        var scrollbarHeight = self.$scrollbar.height();
 
         if (visVertFrac < 1) {
             self.$scrollbar
@@ -193,8 +193,8 @@ $.extend(ScrollPanel.prototype, {
     // Scroll content according to mouse position.
     scroll: function (event) {
 
-        var self = this,
-            clickFrac = (event.pageY - self.$scrollbar.offset().top - self.mouseOffsetY) / self.$scrollbar.height();
+        var self = this;
+        var clickFrac = (event.pageY - self.$scrollbar.offset().top - self.mouseOffsetY) / self.$scrollbar.height();
 
         self.$viewport.scrollTop(self.$container.outerHeight() * clickFrac);
         self.update();
