@@ -1,24 +1,26 @@
 {
   "name": "jquery-scrollpanel",
   "displayName": "jQuery.scrollpanel",
-  "version": "0.5.0",
-  "description": "a simple vertical scrollpanel",
-  "homepage": "http://larsjung.de/jquery-scrollpanel/",
+  "version": "0.6.0",
+  "description": "Simple vertical scrollpanel.",
+  "homepage": "https://larsjung.de/jquery-scrollpanel/",
   "bugs": "https://github.com/lrsjng/jquery-scrollpanel/issues",
-  "author": "Lars Jung <lrsjng@gmail.com> (http://larsjung.de)",
+  "author": "Lars Jung <lrsjng@gmail.com> (https://larsjung.de)",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "build": "node ghu.js release",
+    "precommit": "npm run -s lint && npm run -s build"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/lrsjng/jquery-scrollpanel.git"
   },
   "devDependencies": {
-    "fquery": "~0.16.2",
-    "fquery-handlebars": "~0.2.0",
-    "fquery-includeit": "~0.2.0",
-    "fquery-jshint": "~0.2.0",
-    "fquery-jszip": "~0.4.0",
-    "fquery-less": "~0.2.0",
-    "fquery-uglifyjs": "~0.2.1",
-    "mkr": "~0.6.1"
+    "eslint": "2.10.2",
+    "ghu": "0.4.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   }
 }
