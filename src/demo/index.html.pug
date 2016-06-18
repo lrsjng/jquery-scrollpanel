@@ -3,20 +3,20 @@ html(lang='en')
     head
         meta(charset='utf-8')
         meta(http-equiv='x-ua-compatible', content='ie=edge')
-        title #{pkg.displayName} #{pkg.version} · Demo
-        meta(name='description', content='demo for #{pkg.displayName} (#{pkg.homepage})')
+        title #{pkg.title} #{pkg.version} · Demo
+        meta(name='description', content=`demo for ${pkg.title} (${pkg.homepage})`)
         meta(name='viewport', content='width=device-width, initial-scale=1')
         link(href='//fonts.googleapis.com/css?family=Ubuntu:300,400,700', rel='stylesheet')
         link(href='normalize.css', rel='stylesheet')
         link(href='styles.css', rel='stylesheet')
         script(src='jquery.min.js')
         script(src='jquery.mousewheel.min.js')
-        script(src='../jquery-scrollpanel-#{pkg.version}.js')
+        script(src=`../jquery-scrollpanel-${pkg.version}.js`)
         script(src='scripts.js')
 
     body
         h1
-            a(href='#{pkg.homepage}' title='#{pkg.displayName} project page') #{pkg.displayName}
+            a(href=pkg.homepage title=`${pkg.title} project page`) #{pkg.title}
             span  #{pkg.version} Demo
 
         div.clearfix

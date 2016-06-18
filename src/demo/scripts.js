@@ -1,7 +1,8 @@
 (function () {
     'use strict';
 
-    var jq = window.jQuery;
+    var win = window; // eslint-disable-line no-undef
+    var jq = win.jQuery;
     var appendContent = true;
 
     function generateContent() {
@@ -36,7 +37,7 @@
         generateContent();
         jq('.scrollpanel').scrollpanel();
 
-        setInterval(updateContent, 1000);
+        win.setInterval(updateContent, 1000);
     }
 
     jq(init);

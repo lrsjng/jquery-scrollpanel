@@ -1,9 +1,10 @@
-/*! jquery-scrollpanel v0.6.1 - https://larsjung.de/jquery-scrollpanel/ */
+/*! jquery-scrollpanel v0.6.2 - https://larsjung.de/jquery-scrollpanel/ */
 (function () {
     'use strict';
 
-    var jq = window.jQuery;
-    var $window = jq(window);
+    var win = window; // eslint-disable-line no-undef
+    var jq = win.jQuery;
+    var $window = jq(win);
 
     var name = 'scrollpanel';
 
@@ -149,10 +150,10 @@
             var self = this;
 
             if (self.updateId && !repeat) {
-                clearInterval(self.updateId);
+                win.clearInterval(self.updateId);
                 self.updateId = 0;
             } else if (!self.updateId && repeat) {
-                self.updateId = setInterval(function () {
+                self.updateId = win.setInterval(function () {
                     self.update(true);
                 }, 50);
             }

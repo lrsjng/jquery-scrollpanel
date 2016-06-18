@@ -1,5 +1,5 @@
 const {resolve, join} = require('path');
-const {ghu, includeit, jade, jszip, less, mapfn, read, remove, uglify, wrap, write} = require('ghu');
+const {ghu, includeit, jszip, less, mapfn, pug, read, remove, uglify, wrap, write} = require('ghu');
 
 const NAME = 'jquery-scrollpanel';
 
@@ -37,13 +37,13 @@ ghu.task('build:scripts', runtime => {
 
 ghu.task('build:demo', runtime => {
     return Promise.all([
-        read(`${SRC}/demo/*.jade`)
-            .then(jade({pkg: runtime.pkg}))
-            .then(write(mapfn.p(SRC, BUILD).s('.jade', ''), {overwrite: true})),
+        read(`${SRC}/demo/*.pug`)
+            .then(pug({pkg: runtime.pkg}))
+            .then(write(mapfn.p(SRC, BUILD).s('.pug', ''), {overwrite: true})),
         read(`${SRC}/demo/*.less`)
             .then(less())
             .then(write(mapfn.p(SRC, BUILD).s('.less', '.css'), {overwrite: true})),
-        read(`${SRC}/demo/*, !**/*.jade, !**/*.less`)
+        read(`${SRC}/demo/*, !**/*.pug, !**/*.less`)
             .then(write(mapfn.p(SRC, BUILD), {overwrite: true}))
     ]);
 });
@@ -60,7 +60,7 @@ ghu.task('build:copy', () => {
 ghu.task('build', ['build:scripts', 'build:demo', 'build:copy']);
 
 ghu.task('zip', ['build'], runtime => {
-    return read(`${BUILD}/**/*`)
+    return read(`${BUILD}/**`)
         .then(jszip({dir: BUILD, level: 9}))
         .then(write(`${BUILD}/${NAME}-${runtime.pkg.version}.zip`, {overwrite: true}));
 });

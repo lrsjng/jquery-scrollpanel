@@ -4,69 +4,69 @@ body {
     font-family: "Ubuntu", "Arial", "sans";
     font-size: 16px;
     color: #333;
+}
 
-    a, a:visited, a:active {
-        color: #1d77c2;
-        text-decoration: none;
+a, a:visited, a:active {
+    color: #1d77c2;
+    text-decoration: none;
 
-        &:hover {
-            color: #333;
+    &:hover {
+        color: #333;
+    }
+}
+
+h1 {
+    display: inline-block;
+    margin: 30px;
+    padding: 4px;
+    font-size: 2em;
+}
+
+.scrollpanel {
+    float: left;
+    margin: 30px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+
+    .sp-scrollbar {
+        width: 10px;
+        background-color: #ccc;
+        cursor: pointer;
+
+        .sp-thumb {
+            background-color: #aaa;
+            transition: height 0.2s ease-in-out;
+        }
+        &.active .sp-thumb {
+            background-color: #999;
         }
     }
+}
 
-    h1 {
-        display: inline-block;
-        margin: 30px;
-        padding: 4px;
-        font-size: 2em;
+.no2, .no4 {
+
+    .sp-scrollbar {
+        margin: 4px;
     }
+}
 
-    .scrollpanel {
-        float: left;
-        margin: 30px;
-        width: 200px;
-        height: 200px;
-        border: 1px solid #ccc;
+.no3, .no4 {
+    border-radius: 9px;
 
-        .sp-scrollbar {
-            width: 10px;
-            background-color: #ccc;
-            cursor: pointer;
+    .sp-scrollbar {
+        border-radius: 5px;
 
-            .sp-thumb {
-                background-color: #aaa;
-                transition: height 0.2s ease-in-out;
-            }
-            &.active .sp-thumb {
-                background-color: #999;
-            }
-        }
-    }
-
-    .no2, .no4 {
-
-        .sp-scrollbar {
-            margin: 4px;
-        }
-    }
-
-    .no3, .no4 {
-        border-radius: 9px;
-
-        .sp-scrollbar {
+        .sp-thumb {
             border-radius: 5px;
-
-            .sp-thumb {
-                border-radius: 5px;
-            }
         }
     }
+}
 
-    .foo {
-        min-height: 30px;
-        background-color: #eee;
-        border: 1px solid #ccc;
-        margin: 1em;
-        padding: 1em;
-    }
+.foo {
+    min-height: 30px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin: 1em;
+    padding: 1em;
 }
