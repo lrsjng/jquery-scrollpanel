@@ -5,7 +5,7 @@
   "authors": [
     "Lars Jung <lrsjng@gmail.com> (https://larsjung.de)"
   ],
-  "main": "dist/jquery.scrollpanel.js",
+  "main": "dist/jquery-scrollpanel.js",
   "license": "MIT",
   "repository": {
     "type": "git",

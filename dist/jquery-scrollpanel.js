@@ -1,4 +1,4 @@
-/*! jquery-scrollpanel v0.6.2 - https://larsjung.de/jquery-scrollpanel/ */
+/*! jquery-scrollpanel v0.7.0 - https://larsjung.de/jquery-scrollpanel/ */
 (function () {
     'use strict';
 
@@ -48,7 +48,7 @@
             .wrapInner('<div class="' + prefix + 'viewport"><div class="' + prefix + 'container"/></div>')
             .append(self.$scrollbar);
 
-        // // Get references.
+        // Get references.
         self.$viewport = self.$el.find('> .' + prefix + 'viewport');
         self.$container = self.$viewport.find('> .' + prefix + 'container');
 

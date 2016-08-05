@@ -1,11 +1,8 @@
 const {resolve, join} = require('path');
-const {ghu, includeit, jszip, less, mapfn, pug, read, remove, uglify, wrap, write} = require('ghu');
-
-const NAME = 'jquery-scrollpanel';
+const {ghu, jszip, less, mapfn, pug, read, remove, uglify, wrap, write} = require('ghu');
 
 const ROOT = resolve(__dirname);
 const SRC = join(ROOT, 'src');
-const VENDOR = join(ROOT, 'vendor');
 const BUILD = join(ROOT, 'build');
 const DIST = join(ROOT, 'dist');
 
@@ -24,37 +21,41 @@ ghu.task('clean', 'delete build folder', () => {
 });
 
 ghu.task('build:scripts', runtime => {
-    return read(`${SRC}/${NAME}.js`)
-        .then(includeit())
+    return read(`${SRC}/${runtime.pkg.name}.js`)
         .then(wrap(runtime.commentJs))
-        .then(write(`${DIST}/${NAME}.js`, {overwrite: true}))
-        .then(write(`${BUILD}/${NAME}-${runtime.pkg.version}.js`, {overwrite: true}))
+        .then(write(`${DIST}/${runtime.pkg.name}.js`, {overwrite: true}))
+        .then(write(`${BUILD}/${runtime.pkg.name}-${runtime.pkg.version}.js`, {overwrite: true}))
         .then(uglify({compressor: {warnings: false}}))
         .then(wrap(runtime.commentJs))
-        .then(write(`${DIST}/${NAME}.min.js`, {overwrite: true}))
-        .then(write(`${BUILD}/${NAME}-${runtime.pkg.version}.min.js`, {overwrite: true}));
+        .then(write(`${DIST}/${runtime.pkg.name}.min.js`, {overwrite: true}))
+        .then(write(`${BUILD}/${runtime.pkg.name}-${runtime.pkg.version}.min.js`, {overwrite: true}));
 });
 
 ghu.task('build:demo', runtime => {
+    const mapper = mapfn.p(SRC, BUILD).s('.less', '.css').s('.pug', '');
+
     return Promise.all([
         read(`${SRC}/demo/*.pug`)
             .then(pug({pkg: runtime.pkg}))
-            .then(write(mapfn.p(SRC, BUILD).s('.pug', ''), {overwrite: true})),
+            .then(write(mapper, {overwrite: true})),
         read(`${SRC}/demo/*.less`)
             .then(less())
-            .then(write(mapfn.p(SRC, BUILD).s('.less', '.css'), {overwrite: true})),
-        read(`${SRC}/demo/*, !**/*.pug, !**/*.less`)
-            .then(write(mapfn.p(SRC, BUILD), {overwrite: true}))
+            .then(write(mapper, {overwrite: true})),
+        read(`${SRC}/demo/*.js`)
+            .then(write(mapper, {overwrite: true})),
+
+        read(`${ROOT}/node_modules/jquery/dist/jquery.min.js`)
+            .then(write(`${BUILD}/demo/jquery.js`, {overwrite: true})),
+        read(`${ROOT}/node_modules/jquery-mousewheel/jquery.mousewheel.js`)
+            .then(write(`${BUILD}/demo/jquery.mousewheel.js`, {overwrite: true})),
+        read(`${ROOT}/node_modules/normalize.css/normalize.css`)
+            .then(write(`${BUILD}/demo/normalize.css`, {overwrite: true}))
     ]);
 });
 
 ghu.task('build:copy', () => {
-    return Promise.all([
-        read(`${VENDOR}/demo/*`)
-            .then(write(mapfn.p(VENDOR, BUILD), {overwrite: true})),
-        read(`${ROOT}/*.md`)
-                .then(write(mapfn.p(ROOT, BUILD), {overwrite: true}))
-    ]);
+    return read(`${ROOT}/*.md`)
+        .then(write(mapfn.p(ROOT, BUILD), {overwrite: true}));
 });
 
 ghu.task('build', ['build:scripts', 'build:demo', 'build:copy']);
@@ -62,7 +63,7 @@ ghu.task('build', ['build:scripts', 'build:demo', 'build:copy']);
 ghu.task('zip', ['build'], runtime => {
     return read(`${BUILD}/**`)
         .then(jszip({dir: BUILD, level: 9}))
-        .then(write(`${BUILD}/${NAME}-${runtime.pkg.version}.zip`, {overwrite: true}));
+        .then(write(`${BUILD}/${runtime.pkg.name}-${runtime.pkg.version}.zip`, {overwrite: true}));
 });
 
 ghu.task('release', ['clean', 'zip']);

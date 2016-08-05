@@ -1,24 +1,28 @@
 {
   "name": "jquery-scrollpanel",
   "title": "jQuery.scrollpanel",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "Simple vertical scrollpanel.",
   "homepage": "https://larsjung.de/jquery-scrollpanel/",
   "bugs": "https://github.com/lrsjng/jquery-scrollpanel/issues",
   "author": "Lars Jung <lrsjng@gmail.com> (https://larsjung.de)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lrsjng/jquery-scrollpanel.git"
+  },
+  "main": "dist/jquery-scrollpanel.js",
   "scripts": {
     "lint": "eslint .",
     "build": "node ghu release",
     "precommit": "npm run -s lint && npm run -s build"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lrsjng/jquery-scrollpanel.git"
-  },
   "devDependencies": {
-    "eslint": "2.13.0",
-    "ghu": "0.6.0"
+    "eslint": "3.2.2",
+    "ghu": "0.11.0",
+    "jquery": "1.12.4",
+    "jquery-mousewheel": "3.1.13",
+    "normalize.css": "4.2.0"
   },
   "engines": {
     "node": ">=6.0.0"
