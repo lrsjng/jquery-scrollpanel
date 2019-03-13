@@ -1,7 +1,7 @@
 # jQuery.scrollpanel
 
-[![license][license-img]][github] [![web][web-img]][web] [![github][github-img]][github] [![npm][npm-img]][npm] [![bower][bower-img]][github]  
-[![version][npm-v-img]][npm] [![downloads][npm-dm-img]][npm] [![dependencies status][gemnasium-img]][gemnasium]
+[![license][license-img]][github] [![web][web-img]][web] [![github][github-img]][github] [![npm][npm-img]][npm]  
+[![version][npm-v-img]][npm] [![downloads][npm-dm-img]][npm]
 
 jQuery plugin to create a vertical scroll panel in a container element.
 To enable mouse wheel support include [jQuery.mousewheel][mousewheel] (MIT).
@@ -10,7 +10,7 @@ To enable mouse wheel support include [jQuery.mousewheel][mousewheel] (MIT).
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016 Lars Jung (https://larsjung.de)
+Copyright (c) 2019 Lars Jung (https://larsjung.de)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -34,16 +34,13 @@ THE SOFTWARE.
 [web]: https://larsjung.de/jquery-scrollpanel/
 [github]: https://github.com/lrsjng/jquery-scrollpanel
 [npm]: https://www.npmjs.org/package/jquery-scrollpanel
-[gemnasium]: https://gemnasium.com/lrsjng/jquery-scrollpanel
 
 [license-img]: https://img.shields.io/badge/license-MIT-a0a060.svg?style=flat-square
 [web-img]: https://img.shields.io/badge/web-larsjung.de/scrollpanel-a0a060.svg?style=flat-square
 [github-img]: https://img.shields.io/badge/github-lrsjng/jquery--scrollpanel-a0a060.svg?style=flat-square
 [npm-img]: https://img.shields.io/badge/npm-jquery--scrollpanel-a0a060.svg?style=flat-square
-[bower-img]: https://img.shields.io/badge/bower-lrsjng/jquery--scrollpanel-a0a060.svg?style=flat-square
 
 [npm-v-img]: https://img.shields.io/npm/v/jquery-scrollpanel.svg?style=flat-square
 [npm-dm-img]: https://img.shields.io/npm/dm/jquery-scrollpanel.svg?style=flat-square
-[gemnasium-img]: https://img.shields.io/gemnasium/lrsjng/jquery-scrollpanel.svg?style=flat-square
 
 [mousewheel]: https://github.com/jquery/jquery-mousewheel
