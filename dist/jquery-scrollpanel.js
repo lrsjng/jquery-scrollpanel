@@ -1,4 +1,4 @@
-/*! jquery-scrollpanel v0.8.0 - https://larsjung.de/jquery-scrollpanel/ */
+/*! jquery-scrollpanel v1.0.0 - https://larsjung.de/jquery-scrollpanel/ */
 (function () {
     'use strict';
 
