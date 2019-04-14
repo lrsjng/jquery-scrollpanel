@@ -3,10 +3,9 @@ html(lang='en')
     head
         meta(charset='utf-8')
         meta(http-equiv='x-ua-compatible', content='ie=edge')
-        title #{pkg.title} #{pkg.version} · Demo
-        meta(name='description', content=`demo for ${pkg.title} (${pkg.homepage})`)
+        title #{pkg.title} #{pkg.version} Demo
+        meta(name='description', content=`${pkg.title} ${pkg.version} Demo (${pkg.homepage})`)
         meta(name='viewport', content='width=device-width, initial-scale=1')
-        link(href='//fonts.googleapis.com/css?family=Ubuntu:300,400,700', rel='stylesheet')
         link(href='normalize.css', rel='stylesheet')
         link(href='styles.css', rel='stylesheet')
         script(src='jquery.js')
@@ -19,9 +18,8 @@ html(lang='en')
             a(href=pkg.homepage title=`${pkg.title} project page`) #{pkg.title}
             span  #{pkg.version} Demo
 
-        div.clearfix
-            div.scrollpanel.no1
-            div.scrollpanel.no2
-            div.scrollpanel.no3
-            div.scrollpanel.no4
-            div.scrollpanel.no5
+        div.scrollpanel.no1
+        div.scrollpanel.no2
+        div.scrollpanel.no3
+        div.scrollpanel.no4
+        div.scrollpanel.no5

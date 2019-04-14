@@ -1,44 +1,35 @@
-(function () {
-    'use strict';
+const WIN = window; // eslint-disable-line no-undef
+const JQ = WIN.jQuery;
+let append_content = true;
 
-    var win = window; // eslint-disable-line no-undef
-    var jq = win.jQuery;
-    var appendContent = true;
+const update = () => {
+    const $panel = JQ('.no5');
+    const $container = JQ('.no5 .sp-container');
+    const length = $container.children().length;
 
-    function generateContent() {
-        jq('.scrollpanel').each(function (idx, el) {
-            for (var i = 0; i < 10; i += 1) {
-                jq(el).prepend('<div class="foo">' + i + '</div>');
-            }
-        });
+    if (length <= 0) {
+        append_content = true;
+    } else if (length >= 10) {
+        append_content = false;
     }
 
-    function updateContent() {
-        var $panel = jq('.no5');
-        var $panelContent = jq('.no5 > .sp-viewport > .sp-container');
-        var length = $panelContent.children().length;
+    if (append_content) {
+        $container.prepend(`<div class="foo">${length}</div>`);
+    } else {
+        $container.children().eq(0).remove();
+    }
 
-        if (length <= 0) {
-            appendContent = true;
-        } else if (length >= 10) {
-            appendContent = false;
+    $panel.scrollpanel('update');
+};
+
+const init = () => {
+    JQ('.scrollpanel').each((idx, el) => {
+        for (let i = 0; i < 10; i += 1) {
+            JQ(el).prepend(`<div class="foo">${i}</div>`);
         }
+    }).scrollpanel();
 
-        if (appendContent) {
-            $panelContent.prepend('<div class="foo">' + length + '</div>');
-        } else {
-            $panelContent.children().eq(0).remove();
-        }
+    WIN.setInterval(update, 1000);
+};
 
-        $panel.scrollpanel('update');
-    }
-
-    function init() {
-        generateContent();
-        jq('.scrollpanel').scrollpanel();
-
-        win.setInterval(updateContent, 1000);
-    }
-
-    jq(init);
-}());
+JQ(init);

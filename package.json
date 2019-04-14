@@ -1,7 +1,7 @@
 {
   "name": "jquery-scrollpanel",
   "title": "jQuery.scrollpanel",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple vertical scrollpanel.",
   "homepage": "https://larsjung.de/jquery-scrollpanel/",
   "bugs": "https://github.com/lrsjng/jquery-scrollpanel/issues",
@@ -18,9 +18,11 @@
     "precommit": "npm run -s lint && npm run -s build"
   },
   "devDependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/preset-env": "7.4.3",
     "eslint": "5.16.0",
-    "ghu": "0.15.0",
-    "jquery": "3.3.1",
+    "ghu": "0.17.0",
+    "jquery": "3.4.0",
     "jquery-mousewheel": "3.1.13",
     "normalize.css": "8.0.1"
   },

@@ -1,5 +1,5 @@
 const {resolve, join} = require('path');
-const {ghu, jszip, less, mapfn, pug, read, remove, uglify, wrap, write} = require('ghu');
+const {ghu, jszip, less, babel, mapfn, pug, read, remove, uglify, wrap, write} = require('ghu');
 
 const ROOT = resolve(__dirname);
 const SRC = join(ROOT, 'src');
@@ -22,6 +22,7 @@ ghu.task('clean', 'delete build folder', () => {
 
 ghu.task('build:scripts', runtime => {
     return read(`${SRC}/${runtime.pkg.name}.js`)
+        .then(babel({presets: ['@babel/preset-env']}))
         .then(wrap(runtime.commentJs))
         .then(write(`${DIST}/${runtime.pkg.name}.js`, {overwrite: true}))
         .then(write(`${BUILD}/${runtime.pkg.name}-${runtime.pkg.version}.js`, {overwrite: true}))
@@ -42,6 +43,7 @@ ghu.task('build:demo', runtime => {
             .then(less())
             .then(write(mapper, {overwrite: true})),
         read(`${SRC}/demo/*.js`)
+            .then(babel({presets: ['@babel/preset-env']}))
             .then(write(mapper, {overwrite: true})),
 
         read(`${ROOT}/node_modules/jquery/dist/jquery.min.js`)
