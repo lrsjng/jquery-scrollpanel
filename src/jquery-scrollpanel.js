@@ -9,91 +9,89 @@ const DEFAULTS = {
 };
 
 
-function ScrollPanel(element, options) {
-    const self = this;
+class ScrollPanel {
+    constructor(element, options) {
+        const self = this;
 
-    self.settings = JQ.extend({}, DEFAULTS, options);
-    const prefix = self.settings.prefix;
+        self.settings = JQ.extend({}, DEFAULTS, options);
+        const prefix = self.settings.prefix;
 
-    self.$el = JQ(element);
-    self.mouse_off_y = 0;
-    self.interval_id = 0;
-    self.scroll_proxy = ev => self.scroll(ev);
+        self.$el = JQ(element);
+        self.mouse_off_y = 0;
+        self.interval_id = 0;
+        self.scroll_proxy = ev => self.scroll(ev);
 
-    // Make content space relative, if not already.
-    if (!self.$el.css('position') || self.$el.css('position') === 'static') {
-        self.$el.css('position', 'relative');
+        // Make content space relative, if not already.
+        if (!self.$el.css('position') || self.$el.css('position') === 'static') {
+            self.$el.css('position', 'relative');
+        }
+
+        // Create scrollbar.
+        self.$bar = JQ(`<div class="${prefix}scrollbar"/>`);
+        self.$thumb = JQ(`<div class="${prefix}thumb"/>`).appendTo(self.$bar);
+
+        // Wrap element's content and add scrollbar.
+        self.$el
+            .addClass(`${prefix}host`)
+            .wrapInner(`<div class="${prefix}viewport"><div class="${prefix}container"/></div>`)
+            .append(self.$bar);
+
+        // Get references.
+        self.$viewport = self.$el.find(`> .${prefix}viewport`);
+        self.$container = self.$viewport.find(`> .${prefix}container`);
+
+        self.$el
+            .on('mousewheel', (ev, delta, deltaX, deltaY) => {
+                self.$viewport.scrollTop(self.$viewport.scrollTop() - 50 * deltaY);
+                self.update();
+                ev.preventDefault();
+                ev.stopPropagation();
+            })
+            .on('scroll', () => {
+                self.update();
+            });
+
+        self.$viewport
+            .css({
+                paddingRight: self.$bar.outerWidth(true),
+                height: self.$el.height(),
+                overflow: 'hidden'
+            });
+
+        self.$container
+            .css({
+                overflow: 'hidden'
+            });
+
+        self.$bar
+            .css({
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                overflow: 'hidden'
+            })
+            .on('mousedown', ev => {
+                self.mouse_off_y = self.$thumb.outerHeight() / 2;
+                self.on_mouse_down(ev);
+            })
+            .each(() => {
+                self.onselectstart = () => false;
+            });
+
+        self.$thumb
+            .css({
+                position: 'absolute',
+                left: 0,
+                width: '100%'
+            })
+            .on('mousedown', ev => {
+                self.mouse_off_y = ev.pageY - self.$thumb.offset().top;
+                self.on_mouse_down(ev);
+            });
+
+        self.update();
+        self.update();
     }
-
-    // Create scrollbar.
-    self.$bar = JQ(`<div class="${prefix}scrollbar"/>`);
-    self.$thumb = JQ(`<div class="${prefix}thumb"/>`).appendTo(self.$bar);
-
-    // Wrap element's content and add scrollbar.
-    self.$el
-        .addClass(`${prefix}host`)
-        .wrapInner(`<div class="${prefix}viewport"><div class="${prefix}container"/></div>`)
-        .append(self.$bar);
-
-    // Get references.
-    self.$viewport = self.$el.find(`> .${prefix}viewport`);
-    self.$container = self.$viewport.find(`> .${prefix}container`);
-
-    self.$el
-        .on('mousewheel', (ev, delta, deltaX, deltaY) => {
-            self.$viewport.scrollTop(self.$viewport.scrollTop() - 50 * deltaY);
-            self.update();
-            ev.preventDefault();
-            ev.stopPropagation();
-        })
-        .on('scroll', () => {
-            self.update();
-        });
-
-    self.$viewport
-        .css({
-            paddingRight: self.$bar.outerWidth(true),
-            height: self.$el.height(),
-            overflow: 'hidden'
-        });
-
-    self.$container
-        .css({
-            overflow: 'hidden'
-        });
-
-    self.$bar
-        .css({
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            overflow: 'hidden'
-        })
-        .on('mousedown', ev => {
-            self.mouse_off_y = self.$thumb.outerHeight() / 2;
-            self.onMousedown(ev);
-        })
-        .each(() => {
-            self.onselectstart = () => false;
-        });
-
-    self.$thumb
-        .css({
-            position: 'absolute',
-            left: 0,
-            width: '100%'
-        })
-        .on('mousedown', ev => {
-            self.mouse_off_y = ev.pageY - self.$thumb.offset().top;
-            self.onMousedown(ev);
-        });
-
-    self.update();
-    self.update();
-}
-
-
-JQ.extend(ScrollPanel.prototype, {
 
     update(repeat) {
         const self = this;
@@ -130,7 +128,7 @@ JQ.extend(ScrollPanel.prototype, {
         } else {
             self.$bar.fadeOut(50);
         }
-    },
+    }
 
     scroll(ev) {
         const self = this;
@@ -140,9 +138,9 @@ JQ.extend(ScrollPanel.prototype, {
         self.update();
         ev.preventDefault();
         ev.stopPropagation();
-    },
+    }
 
-    onMousedown(ev) {
+    on_mouse_down(ev) {
         const self = this;
 
         self.scroll(ev);
@@ -155,7 +153,7 @@ JQ.extend(ScrollPanel.prototype, {
                 self.scroll(event1);
             });
     }
-});
+}
 
 
 JQ.fn[NAME] = function main(options, options2) {

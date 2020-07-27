@@ -1,10 +1,10 @@
-const {resolve, join} = require('path');
+const {resolve} = require('path');
 const {ghu, jszip, less, babel, mapfn, pug, read, remove, uglify, wrap, write} = require('ghu');
 
 const ROOT = resolve(__dirname);
-const SRC = join(ROOT, 'src');
-const BUILD = join(ROOT, 'build');
-const DIST = join(ROOT, 'dist');
+const SRC = resolve(ROOT, 'src');
+const BUILD = resolve(ROOT, 'build');
+const DIST = resolve(ROOT, 'dist');
 
 ghu.defaults('release');
 
